@@ -1,0 +1,125 @@
+{% extends 'student/base.html' %}
+
+{% block content %}
+
+<div class="container text-center" style="margin-top:50px">
+
+    <div class="row">
+    <div class="col-md-6">
+        <select id="student">
+        <option value="" disabled selected>Select Student ID</option>
+        {% for row in student %}
+        <option value="{{ row.Student_ID }}">{{ row.Student_ID }}</option>
+        {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-6">
+        <select id="book">
+        <option value="" disabled selected>Select Book Title</option>
+        {% for row in book %}
+        <option value="{{ row.Book_Title }}">{{ row.Book_Title }}</option>
+        {% endfor %}
+        </select>
+    </div>
+    </div><br/><br/>
+
+    <button class="btn btn-primary" id="btnselect">Reserve</button><br/><br/>
+
+    <h5 id="result"></h5><br/>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Book Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in reservation %}
+            <tr>
+                <td>{{ row.StudentID }}</td>
+                <td>{{ row.BookTitle }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+ <script>
+
+    $('document').ready(function (){
+        $('#btnselect').click(function(){
+            $.ajax({
+                url: "{% url 'savereservation' %}",
+                data: {
+                    StudentID: $('#student').val(),
+                    BookTitle: $('#book').val()
+                },
+                success: function(data){
+                    if (data == 'Reserved')
+                    {
+                    window.location = "{% url 'reserve' %}";
+                    }
+                    else{
+                        $('#result').html('Can not reserve (Book aready registered or student exceeded 3 book limit)')
+                    }
+                }
+            });
+        });
+    });
+
+
+
+
+ </script>
+
+ {% endblock %} 
+
+
+ success: function(data){
+    if (data == 'Success')
+    {
+        windows.location = "{% url 'reserve' %}";
+    }
+    else{
+        $('#result').html('Reservation was unsuccessful');
+
+
+
+
+<!--
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+
+    $('document').ready(function (){
+            $('#btnselect').click(function(){
+                $.ajax({
+                    url: "{% url 'savebook' %}", 
+                    data: {
+                        studentname: $('#student').val(),
+                        booktype: $('#book').val()
+                    },
+                    success: function(data){
+                        if (data == 'Success')
+                        {
+                            windows.location = "{% url 'reserve' %}";
+                        }
+                        else{
+                            $('#result').html('Reservation was unsuccessful');
+                        }
+                    }
+                });
+            });
+        });
+
+</script>
+
+-->

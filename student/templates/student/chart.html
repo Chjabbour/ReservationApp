@@ -1,0 +1,189 @@
+{% extends 'student/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h4>Welcome {{ request.session.username }} to the Book Reservations web portal!</h4>
+    <br/><br/><br/>
+    <h5 class="container text-center">Here we have the amount of students in each year</h5>
+</div>
+
+
+<div class="container text-center" style="margin-top:20px">
+
+    <canvas id="myChart" width="200px" height="150px"></canvas>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" 
+integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" 
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+
+    var chartobj = document.getElementById('myChart')
+
+    var myChart = new Chart(chartobj, {
+
+        type: 'doughnut',
+        data: {
+            labels:['Seniors', 'Juniors', 'Sophomores'],
+            datasets: [{
+            label: 'Student Year Information',
+            data: [{{ seniors }}, {{ juniors }}, {{ sophomores }} ],
+            backgroundColor: [
+                'rgb(255, 99, 132, 0.9)',
+                'rgb(54, 162, 235, 0.9)',
+                'rgb(255, 205, 86, 0.9)'
+            ]
+            }]
+        },
+
+
+        options: {
+            scales: {
+            y: {
+                beginAtZero: true
+            }
+            }
+        }
+    });
+
+</script>
+<br/><br/><br/>
+
+<div class="container">
+    <br/><br/><br/>
+    <h5 class="container text-center">Here we have the total amount of students and the average GPA</h5>
+</div>
+
+<div class="container text-center" style="margin-top:20px">
+
+    <canvas id="myDoghnut" width="600px" height="550px"></canvas>
+
+</div>
+
+
+
+<script>
+
+    var chartobj = document.getElementById('myDoghnut')
+
+    var myDoghnut = new Chart(chartobj, {
+
+        type: 'bar',
+        data: {
+            labels:['Enrolled Students', 'Average GPA'],
+            datasets: [{
+            label: 'Student Information',
+            data: [{{ enrolledstudents }}, {{ averagegpa }}],
+            backgroundColor: [
+                'rgb(255, 99, 132, 0.5)',
+                'rgb(51, 204, 51, 0.5)'
+            ]
+            }]
+        },
+
+        options: {
+            scales: {
+            y: {
+                beginAtZero: true
+            }
+            }
+        }
+    });
+
+</script>
+
+
+
+<h3>Created By : {{ name }}</h3>
+
+<!-- 
+var myDoghnut = new Doghnut(doghnutobj, {
+
+    type: 'doghnut',
+    data: {
+        labels:['Seniors', 'Juniors', 'Sophomore'],
+        datasets: [{
+        label: 'Student Year Information',
+        data: [3,4,5],
+        // {{ seniors }}, {{ juniors }}, {{ sophomores }} 
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)'
+        ]
+        }]
+    },
+
+
+    options: {
+        scales: {
+        y: {
+            beginAtZero: true
+        }
+        }
+    }
+
+});
+ -->
+
+<!-- 
+ <div class="container text-center" style="margin-top:50px">
+
+    <canvas id="myDoghnut" width="600px" height="250px"></canvas>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" 
+integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" 
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+
+    var chartobj = document.getElementById('myDoghnut')
+
+    var myDoghnut = new Chart(chartobj, {
+
+        type: 'doghnut',
+        data: {
+            labels:['Seniors', 'Juniors', 'Sophomore'],
+            datasets: [{
+            label: 'Student Year Information',
+            data: [7,4,3],
+            // {{ enrolledstudents }}, {{ averagegpa }}
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+            ]
+            }]
+        },
+
+
+        options: {
+            scales: {
+            y: {
+                beginAtZero: true
+            }
+            }
+        }
+    });
+
+</script> -->
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+	<head> 
+		<title>Intro to Django</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="device-width, initial-scale=1.0" />
+		<link <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+		<link type="text/css" rel="stylesheet" href="{% static 'student/css/style.css' %}" />
+
+	</head>
+	<body>
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">BUS 443</a>
+                <ul class="navbar-nav">
+                    <!-- <li class="navbar-item">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li> -->
+                    <li class="navbar-item">
+						<a class="nav-link" href="{% url 'chart' %}">Home/Chart</a>
+					</li>
+					<li class="navbar-item">
+						<a class="nav-link" href="{% url 'studentdetails' %}">Student details</a>
+					</li>
+                    <li class="navbar-item">
+						<a class="nav-link" href="{% url 'bookdetails' %}">Book details</a>
+					</li>
+                    <li class="navbar-item">
+						<a class="nav-link" href="{% url 'reserve' %}">Reserve Book</a>
+					</li>
+                </ul>
+                {% if not user.is_authenticated %}
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="btn btn-light btn-sm" href="{% url 'login' %}" style="margin-left: 1200px">Log in</a>
+                        </li>
+                    </ul>
+
+                {% else %}
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="btn btn-light btn-sm" href="{% url 'logout' %}" style="margin-left: 1200px">Log out</a>
+                        </li>
+                    </ul>
+                {% endif %}
+            </nav>
+        </header>
+
+        {% block container %}
+
+            <div>
+                {% block content %}
+
+                {% endblock %}
+            </div>
+
+        {% endblock %}
+
+    </body>
+</html>
