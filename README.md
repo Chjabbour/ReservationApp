@@ -1,4 +1,4 @@
-# Book Reservation Web Application with an Analytics Dashboard
+# Book Reservation Web Application with an Analytics Dashboard made with Django
 
 Authentication
 ![webapp2](https://user-images.githubusercontent.com/68674002/145207803-1c2da859-cb15-435f-947a-d21e836cd29e.PNG)
