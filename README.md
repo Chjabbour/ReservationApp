@@ -90,9 +90,9 @@ export BLUEARGUS_VAULT_PATH=/v1/generic/project/ne-ant-ai-analytics/blueargus/pr
 
 `source ~/.bash_profile`
 
-Add these to your server.env file
+### Add these to your server.env file
 
-```
+```bash
 VAULT_ADDR=https://vserv-us.sos.ibm.com:8200
 VAULT_SECRET_ID=<provided secret id>
 VAULT_ROLE_ID=<provided role id>
