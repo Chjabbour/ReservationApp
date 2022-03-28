@@ -67,8 +67,8 @@ Then right click Liberty Server again > Start
 Navigate to Performance-Management/PerfMgmtStoreBuild/defaultServer/resources/security and copy the 5 files then paste them in wlp/usr/servers/defaultServer/resources/security/
 
 
-# You need to set environment variables to the current shell to initialize the secrets volume.
-```
+### You need to set environment variables to the current shell to initialize the secrets volume.
+```bash
 # Vault prod address
 export VAULT_ADDR=https://vserv-us.sos.ibm.com:8200
 
@@ -84,8 +84,8 @@ export STOREFRONT_VAULT_PATH=/v1/generic/project/ne-ant-ai-analytics/storefront/
 
 # BlueArgus prod Vault instance
 export BLUEARGUS_VAULT_PATH=/v1/generic/project/ne-ant-ai-analytics/blueargus/prod
-
 ```
+
 **Source it** 
 
 `source ~/.bash_profile`
