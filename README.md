@@ -86,12 +86,10 @@ export STOREFRONT_VAULT_PATH=/v1/generic/project/ne-ant-ai-analytics/storefront/
 export BLUEARGUS_VAULT_PATH=/v1/generic/project/ne-ant-ai-analytics/blueargus/prod
 
 ```
-
+##Source it
 `source ~/.bash_profile`
 
-
-Under the Servers tab
-Go to Liberty Server at localhost and add these to your server.env file
+Add these to your server.env file
 
 ```
 VAULT_ADDR=https://vserv-us.sos.ibm.com:8200
