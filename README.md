@@ -86,7 +86,7 @@ export STOREFRONT_VAULT_PATH=/v1/generic/project/ne-ant-ai-analytics/storefront/
 export BLUEARGUS_VAULT_PATH=/v1/generic/project/ne-ant-ai-analytics/blueargus/prod
 
 ```
-##Source it
+## Source it
 `source ~/.bash_profile`
 
 Add these to your server.env file
