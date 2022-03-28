@@ -87,6 +87,7 @@ export BLUEARGUS_VAULT_PATH=/v1/generic/project/ne-ant-ai-analytics/blueargus/pr
 
 ```
 **Source it** 
+
 `source ~/.bash_profile`
 
 Add these to your server.env file
