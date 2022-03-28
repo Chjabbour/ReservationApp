@@ -36,7 +36,7 @@ File > Import > General > Projects from Folder or Archive > Directory…
 Select PerfMgmtStore and PerfMgmtStoreEar and click finish
 
 
-Now you need to add the version of Java we are using for the project
+### Using the correct Java version for the project
 
 In your browser go to the link:
 https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html
@@ -46,10 +46,6 @@ Java SE Development Kit 8u172
 Change the Java Build Path for the project:
 Confirm your path by navigating to it in the terminal. It should look something like this:
 “/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/”
-What we need to do is add 5 security files to repo
-
-
-
 
 In eclipse, under the Package Explorer section on the right:
 Right click PerfMgmtStore> Properties > Java Build Path > Libraries > JRE System Library > Installed JREs > Add > MACOS X VM
@@ -57,17 +53,19 @@ Right click PerfMgmtStore> Properties > Java Build Path > Libraries > JRE System
 Copy your java path to the JRE home and rename it to Java SE 1.8.0_172. Once you click finish select that java version and click Apply and Close
 
 
-Add the liberty Server in Eclipse:
+### Adding the liberty Server in Eclipse:
 Navigate to Windows > Show View > Other > Server > Servers > Finish
 Severs tab > create a new server > IBM > Liberty Server > Path > Select the installed wlp server > finish
 
 Go back to the server panel > expand Liberty Server > Open Server Configuration > Source > locate the line with “fileset” and edit the start of the path to match your local setup. 
 Then right click Liberty Server again > Start
 
+**Add the 5 security files into the server**
+
 Navigate to Performance-Management/PerfMgmtStoreBuild/defaultServer/resources/security and copy the 5 files then paste them in wlp/usr/servers/defaultServer/resources/security/
 
 
-### You need to set environment variables to the current shell to initialize the secrets volume.
+### Set environment variables to the current shell to initialize the secrets volume.
 ```bash
 # Vault prod address
 export VAULT_ADDR=https://vserv-us.sos.ibm.com:8200
