@@ -14,8 +14,6 @@ Reserving books for students
 
 
 ### Requirements
-- 
-
 Getting Started - One time setup
 
 Clone this Repo using the HTTPS method
@@ -70,6 +68,7 @@ Navigate to Performance-Management/PerfMgmtStoreBuild/defaultServer/resources/se
 
 
 # You need to set environment variables to the current shell to initialize the secrets volume.
+```
 # Vault prod address
 export VAULT_ADDR=https://vserv-us.sos.ibm.com:8200
 
@@ -86,6 +85,7 @@ export STOREFRONT_VAULT_PATH=/v1/generic/project/ne-ant-ai-analytics/storefront/
 # BlueArgus prod Vault instance
 export BLUEARGUS_VAULT_PATH=/v1/generic/project/ne-ant-ai-analytics/blueargus/prod
 
+```
 
 `source ~/.bash_profile`
 
