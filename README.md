@@ -93,9 +93,10 @@ export BLUEARGUS_VAULT_PATH=/v1/generic/project/ne-ant-ai-analytics/blueargus/pr
 Under the Servers tab
 Go to Liberty Server at localhost and add these to your server.env file
 
-
-`VAULT_ADDR=https://vserv-us.sos.ibm.com:8200
+```
+VAULT_ADDR=https://vserv-us.sos.ibm.com:8200
 VAULT_SECRET_ID=<provided secret id>
 VAULT_ROLE_ID=<provided role id>
 VAULT_LOGIN_PATH=/v1/auth/approle/login
-STOREFRONT_VAULT_PATH=/v1/generic/project/ne-ant-ai-analytics/storefront/prod `
+STOREFRONT_VAULT_PATH=/v1/generic/project/ne-ant-ai-analytics/storefront/prod
+```
